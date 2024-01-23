@@ -8,11 +8,13 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
+@app.route("/all")
+def all():
+    return render_template("all.html")
 
 @app.route("/addrecipe")
 def addrecipe():
     return render_template("addrecipe.html")
-
 
 @app.route("/contact")
 def contact():
