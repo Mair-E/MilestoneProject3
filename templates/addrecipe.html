@@ -1,4 +1,11 @@
 {% extends "base.html" %}
+
 {% block content %}
-<h1>Submit your own recipe</h1>
+
+<h1>Share Your Favourite Recipe With Us</h1>
+<form method="post" action="{{ url_for('add_recipe') }}">
+    <!-- Add Form fields -->
+    <button type="submit">Save Recipe</button>
+</form>
+
 {% endblock %}
