@@ -63,20 +63,8 @@ recipes = [ #Add prep/cook time, submitted by#
 def index():
     return render_template('index.html', recipes=recipes)
 
-@app.route("/all")
-def all():
-    return render_template("all.html")
-
-@app.route("/addrecipe")
+@app.route('/addrecipe', methods=['GET', 'POST'])
 def addrecipe():
-    return render_template("addrecipe.html")
-
-@app.route("/contact")
-def contact():
-    return render_template("contact.html")
-
-@app.route('/add_recipe', methods=['GET', 'POST'])
-def add_recipe():
     if request.method == 'POST':
         new_recipe = {
             'id': len(recipes) + 1,
@@ -90,10 +78,18 @@ def add_recipe():
         recipes.append(new_recipe)
         return redirect(url_for('index'))
 
-    return render_template('add_recipe.html')
-    
-    if __name__ == "__main__":
-        app.run(
-            host=os.environ.get("IP", "0.0.0.0"),
-            port=int(os.environ.get("PORT", "5000")),
-            debug=True) ##Update to False before submitting##
+    return render_template('addrecipe.html')
+
+@app.route("/all")
+def all():
+    return render_template("all.html")
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html") 
+
+if __name__ == "__main__":
+    app.run(
+        host=os.environ.get("IP", "0.0.0.0"),
+        port=int(os.environ.get("PORT", "5000")),
+        debug=True) ##Update to False before submitting##

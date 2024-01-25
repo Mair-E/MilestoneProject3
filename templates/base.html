@@ -29,7 +29,7 @@
                     <li class="nav-item"><a class="nav-link active" aria-current="page"
                             href="{{ url_for('index')}}">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('all')}}">Cook Book</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('addrecipe')}}">Share a Recipe</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('addrecipe')}}">Add</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('contact')}}">Contact Us</a>
                     </li>
                 </ul>
@@ -46,7 +46,8 @@
                         <p class="lead text-white-50 mb-4">find and share new and loved recipes.</p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
                             <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Find a new recipe</a>
-                            <a class="btn btn-outline-light btn-lg px-4" href="#!">Share a recipe</a>
+                            <a class="btn btn-outline-light btn-lg px-4" href="{{ url_for('addrecipe') }}">Share a
+                                Recipe</a>
                         </div>
                     </div>
                 </div>

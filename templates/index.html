@@ -39,17 +39,4 @@
     </div>
 </section>
 
-<section class="py-5 border-bottom" id="features">
-    <ul>
-        {% for recipe in recipes %}
-        <li>
-            <strong>{{ recipe.name }}</strong>
-            <span>{{ recipe.tags }}</span>
-            <a href="{{ url_for('edit_recipe', recipe_id=recipe.id) }}">Edit</a>
-        </li>
-        {% endfor %}
-    </ul>
-    <a href="{{ url_for('add_recipe') }}">Add New Recipe</a>
-</section>
-
 {% endblock %}
