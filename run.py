@@ -4,9 +4,64 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route("/")
+
+recipes = [ #Add prep/cook time, submitted by#
+    {
+        'id': 1,
+        'name': 'Banana Bread',
+        'serves': '10',
+        'ingredients': ['3 very ripe medium bananas (approx. 225g peeled)', '3 large eggs', '100g light brown sugar', 
+        '150ml vegetable oil', '275g white self-raising flour', '1 tsp ground mixed spice', '1 tsp baking powder'],
+        'instructions': [''],
+        'tools': 'Preheat oven at 180 degrees',
+        'tags': ['Vegetarian', 'Baking'],
+    },
+    {
+        'id': 2,
+        'name': 'Veggie Spag Bal',
+        'serves': '',
+        'ingredients': '',
+        'tools': '',
+        'tags': '',
+    },
+    {
+        'id': 3,
+        'name': '',
+        'serves': '',
+        'ingredients': '',
+        'tools': '',
+        'tags': '',
+    },
+    {
+        'id': 4,
+        'name': '',
+        'serves': '',
+        'ingredients': '',
+        'tools': '',
+        'tags': '',
+    },
+    {
+        'id': 5,
+        'name':'',
+        'serves': '',
+        'ingredients': '',
+        'tools': '',
+        'tags': '',
+    },
+    {
+        'id': 6,
+        'name': '',
+        'serves': '',
+        'ingredients': '',
+        'tools': '',
+        'tags': 'Vegetarian',
+    }, 
+
+]
+
+@app.route('/')
 def index():
-    return render_template("index.html")
+    return render_template('index.html', recipes=recipes)
 
 @app.route("/all")
 def all():
@@ -20,64 +75,6 @@ def addrecipe():
 def contact():
     return render_template("contact.html")
 
-recipes = [ #Add prep/cook time, submitted by#
-    {
-        'id': 1,
-        'name'= 'Banana Bread',
-        'serves'= '10',
-        'ingredients': ['3 very ripe medium bananas (approx. 225g peeled)', '3 large eggs', '100g light brown sugar', 
-        '150ml vegetable oil', '275g white self-raising flour', '1 tsp ground mixed spice', '1 tsp baking powder'],
-        'instructions': [''],
-        'tools': 'Preheat oven at 180 degrees',
-        'tags': ['Vegetarian', 'Baking'],
-    },
-    {
-        'id': 2,
-        'name'= 'Veggie Spag Bal',
-        'serves'= '',
-        'ingredients': '',
-        'tools': '',
-        'tags': '',
-    },
-    {
-        'id': 3,
-        'name'= '',
-        'serves'= '',
-        'ingredients': '',
-        'tools': '',
-        'tags': '',
-    },
-    {
-        'id': 4,
-        'name'= '',
-        'serves'= '',
-        'ingredients': '',
-        'tools': '',
-        'tags': '',
-    },
-    {
-        'id': 5,
-        'name'='',
-        'serves'= '',
-        'ingredients': '',
-        'tools': '',
-        'tags': '',
-    },
-    {
-        'id': 6,
-        'name'= '',
-        'serves'= '',
-        'ingredients': '',
-        'tools': '',
-        'tags': 'Vegetarian',
-    }, 
-
-]
-
-@app.route('/')
-def index():
-    return render_template('index.html', recipes=recipes)
-    
 @app.route('/add_recipe', methods=['GET', 'POST'])
 def add_recipe():
     if request.method == 'POST':
