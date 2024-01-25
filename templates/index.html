@@ -2,6 +2,15 @@
 {% block content %}
 
 <!-- Popular recipe section-->
+<ul>
+    {% for recipe in recipes %}
+    <li>
+        <strong>{{ recipe.name }}</strong>
+        <span>{{ recipe.tags }}</span>
+    </li>
+    {% endfor %}
+</ul>
+
 <section class="py-5 border-bottom" id="features">
     <div class="container px-5 my-5">
         <div class="row gx-5">
