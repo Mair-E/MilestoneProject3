@@ -14,7 +14,7 @@ recipes = [ #Add prep/cook time, submitted by#
         '150ml vegetable oil', '275g white self-raising flour', '1 tsp ground mixed spice', '1 tsp baking powder'],
         'instructions': [''],
         'tools': 'Preheat oven at 180 degrees',
-        'tags': ['Vegetarian', 'Baking'],
+        'tags': 'Vegetarian',
     },
     {
         'id': 2,
