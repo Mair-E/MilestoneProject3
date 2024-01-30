@@ -1,8 +1,13 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for
+from taskmanager import app
 
-
-app = Flask(__name__)
+if__name__ == "__main__":
+    app.run(
+        host=os.environ.get("IP"),
+        port=int(os.environ.get("PORT")),
+        debug=os.environ.get("DEBUG"),
+    )
 
 
 recipes = [ #Add prep/cook time, submitted by#
