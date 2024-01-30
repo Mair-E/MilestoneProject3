@@ -29,8 +29,8 @@ recipes = [ #Add prep/cook time, submitted by#
         'id': 3,
         'name': 'Guacamole',
         'serves': '8-10',
-        'ingredients': ['3 chopped ripe avocados', '1/2 chopped red onion'. 'handful finely chopped coriander leaf', '1 lime juiced', '1 finely chopped red chill'],
-        'instructions': ['Mash avo until smooth. Add onion, coriander and lime juice, season with salt and pepper and combine. Stir in red chilli and serve.']
+        'ingredients': [''],
+        'instructions': ['Mash avo until smooth. Add onion, coriander and lime juice, season with salt and pepper and combine. Stir in red chilli and serve.'],
         'tools': '> 30 mins',
         'tags': 'Mexican',
     },
