@@ -8,11 +8,11 @@
         <div class="row gx-5">
             {% for recipe in recipes %}
             <div class="col-lg-4 mb-5 mb-lg-0">
-                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i
-                        class="bi bi-book"></i> <!-- Add bootstrap icon to README.md-->
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-book"></i>
+                    <!-- Add bootstrap icon to README.md-->
                 </div>
                 <h2 class="h4 fw-bolder">{{ recipe.name }}</h2>
-                <p>{{ recipe.tags }}</p>
+                <p>{{ recipe.cuisine }}</p>
                 <a class="text-decoration-none" href="#!">
                     Full recipe
                     <i class="bi bi-arrow-right"></i>

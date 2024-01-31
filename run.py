@@ -12,11 +12,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-@app.route("/")
-def index():
-    recipes = Recipe.query.all
-    return render_template("index.html", recipes=recipes)
-
 #Recipe model
 
 class Recipe(db.Model):
@@ -27,6 +22,12 @@ class Recipe(db.Model):
     tools = db.Column(db.String(255), nullable=False)
     cuisine = db.Column(db.String(255), nullable=False)
     
+@app.route("/")
+def index():
+    recipes = Recipe.query.all()
+    return render_template("index.html", recipes=recipes)
+
+
 # Create the database tables
 with app.app_context():
     try:
