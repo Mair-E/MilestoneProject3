@@ -4,31 +4,27 @@
 
 <section class="py-5">
     <div class="container px-5 my-5">
-        <h2 class="display-5 fw-bolder">Share Your Favourite Recipe With Us</h2>
+        <h2 class="display-5 fw-bolder">Share Your Favourite Recipe</h2>
         <form method="POST" action="{{ url_for('addrecipe') }}">
             <div class="mb-3">
-                <label for="name">Recipe Name:</label>
-                <input type="text" id="name" name="name" required>
+                <label for="name" class="form-label">Recipe Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
             </div>
             <div class="mb-3">
-                <label for="ingredients">Ingredients (comma-separated):</label>
-                <textarea id="ingredients" name="ingredients" rows="4" required></textarea>
+                <label for="ingredients" class="form-label">Ingredients (comma-separated):</label>
+                <textarea class="form-control" id="ingredients" name="ingredients" rows="4" required></textarea>
             </div>
             <div class="mb-3">
-                <label for="serves">Serves:</label>
-                <textarea id="serves" name="serves" rows="4" required></textarea>
+                <label for="instructions" class="form-label">Instructions:</label>
+                <textarea class="form-control" id="instructions" name="instructions" rows="8" required></textarea>
             </div>
             <div class="mb-3">
-                <label for="instructions">Instructions:</label>
-                <textarea id="instructions" name="instructions" rows="8" required></textarea>
+                <label for="tools" class="form-label">Tools (comma-separated):</label>
+                <input type="text" class="form-control" id="tools" name="tools" required>
             </div>
             <div class="mb-3">
-                <label for="tools">Tools (comma-separated):</label>
-                <input type="text" id="tools" name="tools" required>
-            </div>
-            <div class="mb-3">
-                <label for="cuisine">Categories (comma-separated):</label>
-                <input type="text" id="cuisine" name="cuisine" required>
+                <label for="cuisine" class="form-label">Categories (comma-separated):</label>
+                <input type="text" class="form-control" id="cuisine" name="cuisine" required>
             </div>
             <button type="submit" class="btn btn-primary">Save Recipe</button>
         </form>

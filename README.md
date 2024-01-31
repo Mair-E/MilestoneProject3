@@ -251,6 +251,8 @@ The site ha a simple and easily navigated interface, allowing the user to quickl
     - Tutor support to assist...
     - [Slack](https://slack.com/intl/en-gb/) to searching for ideas for inspiration.
 
+    - [Flask-SQLAlchemy](https://pypi.org/project/Flask-SQLAlchemy/)with assistance adding 
+
     All images were taken from the sites below:
     - 
     - [Favicon](https://favicon.io/) for the Favicon for the website.
