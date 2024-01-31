@@ -65,27 +65,6 @@ recipes = [ #Add prep/cook time, submitted by#
 
 ]
 
-@app.route('/')
-def index():
-    return render_template('index.html', recipes=recipes)
-
-@app.route('/addrecipe', methods=['GET', 'POST'])
-def addrecipe():
-    if request.method == 'POST':
-        new_recipe = {
-            'id': len(recipes) + 1,
-            'name': request.form['name'],
-            'serves': request.form['serves'],
-            'ingredients': request.form.getlist('ingredients'),
-            'instructions': request.form['instructions'],
-            'tools': request.form.getlist('tools'),
-            'tags': request.form.getlist['tags'],
-        }
-        recipes.append(new_recipe)
-        return redirect(url_for('index'))
-
-    return render_template('addrecipe.html')
-
 @app.route("/all")
 def all():
     return render_template("all.html")
