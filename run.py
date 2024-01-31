@@ -14,7 +14,7 @@ db = SQLAlchemy(app)
 
 @app.route("/")
 def index():
-    recipes = Recipe.query.all()
+    recipes = Recipe.query.all
     return render_template("index.html", recipes=recipes)
 
 #Recipe model
@@ -74,6 +74,9 @@ def edit_recipe(recipe_id):
 
     return render_template('edit_recipe.html', recipe=recipe)
 
+@app.route("/all")
+def all():
+    return render_template("all.html")
 
 @app.route("/contact")
 def contact():
