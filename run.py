@@ -26,7 +26,7 @@ class Recipe(db.Model):
 with app.app_context():
     try:
         db.create_all()
-    except (Exception, SQLAlchemyError) as e:
+    except Exception as e:
         print(f"Error creating database tables: {e}")
 
 # Index route

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- Popular recipe section-->
+<!-- Complete recipe section-->
 
 <section class="py-5 border-bottom" id="features">
     <div class="container px-5 my-5">
@@ -13,8 +13,8 @@
                 </div>
                 <h2 class="h4 fw-bolder">{{ recipe.name }}</h2>
                 <p>{{ recipe.cuisine }}</p>
-                <a class="text-decoration-none" href="#!">
-                    Full recipe
+                <a class="text-decoration-none" href="{{ url_for('edit_recipe', recipe_id=recipe.id) }}">
+                    Edit
                     <i class="bi bi-arrow-right"></i>
                 </a>
             </div>
