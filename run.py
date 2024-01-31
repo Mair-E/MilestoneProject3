@@ -1,5 +1,15 @@
 import os
-from taskmanager import app
+from flask import render_template, request, redirect, url_for
+from flask_sqlalchemy import SQLAlchemy
+if os.path.exists("env.py"):
+    import env  # noqa
+
+
+app = Flask(__name__)
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
+
+db = SQLAlchemy(app)
 
 #Recipe model
 
@@ -32,8 +42,16 @@ def edit_recipe(recipe_id):
 
     return render_template('edit_recipe.html', recipe=recipe)
 
-    if __name__ == "__main__":
-        app.run(
-            host=os.environ.get("IP", "0.0.0.0"),
-            port=int(os.environ.get("PORT", "5000")),
-            debug=True) #Update to False before submitting
+@app.route("/all")
+def all():
+    return render_template("all.html")
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html") 
+
+if __name__ == "__main__":
+    app.run(
+        host=os.environ.get("IP", "0.0.0.0"),
+        port=int(os.environ.get("PORT", "5000")),
+        debug=True) #Update to False before submitting
