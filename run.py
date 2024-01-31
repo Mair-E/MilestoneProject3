@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+
 if os.path.exists("env.py"):
     import env  # noqa
 
@@ -13,7 +14,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 #Recipe model
-
 class Recipe(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
@@ -22,21 +22,20 @@ class Recipe(db.Model):
     tools = db.Column(db.String(255), nullable=False)
     cuisine = db.Column(db.String(255), nullable=False)
     
+# Create the database tables
+with app.app_context():
+    try:
+        db.create_all()
+    except (Exception, SQLAlchemyError) as e:
+        print(f"Error creating database tables: {e}")
+
+# Index route
 @app.route("/")
 def index():
     recipes = Recipe.query.all()
     return render_template("index.html", recipes=recipes)
 
-
-# Create the database tables
-with app.app_context():
-    try:
-        db.create_all()
-    except Exception as e:
-        print(f"Error creating database tables: {e}")
-
-
-# add_recipe route
+# Addrecipe route
 @app.route('/addrecipe', methods=['GET', 'POST'])
 def addrecipe():
     if request.method == 'POST':
@@ -56,7 +55,7 @@ def addrecipe():
 
     return render_template('addrecipe.html')
 
-
+# Edit_recipe route
 @app.route('/edit_recipe/<int:recipe_id>', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):
     recipe = Recipe.query.get(recipe_id)
@@ -75,10 +74,7 @@ def edit_recipe(recipe_id):
 
     return render_template('edit_recipe.html', recipe=recipe)
 
-@app.route("/all")
-def all():
-    return render_template("all.html")
-
+# Contact route
 @app.route("/contact")
 def contact():
     return render_template("contact.html") 
