@@ -26,10 +26,12 @@
         <input type="text" id="tools" name="tools" required>
     </div>
     <div>
-        <label for="tags">Tags (comma-separated):</label>
-        <input type="text" id="tags" name="tags" required>
+        <label for="categories">Categories (comma-separated):</label>
+        <input type="text" id="categories" name="categories" required>
     </div>
     <button type="submit">Save Recipe</button>
 </form>
+
+<a href="{{ url_for('index') }}">Back to Recipe List</a>
 
 {% endblock %}
