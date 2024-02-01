@@ -89,6 +89,16 @@ def delete_recipe(recipe_id):
 
     return render_template('delete_recipe.html', recipe=recipe)
 
+# View full recipe route
+@app.route('/full_recipe/<int:recipe_id>')
+def full_recipe(recipe_id):
+    recipe = Recipe.query.get(recipe_id)
+
+    if recipe is None:
+        return "Recipe not found", 404
+
+    return render_template('full_recipe.html', recipe=recipe)
+
 # Contact route
 @app.route("/contact")
 def contact():
