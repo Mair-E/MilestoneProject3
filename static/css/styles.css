@@ -12617,3 +12617,15 @@ fieldset:disabled .btn {
   width: 4rem;
   font-size: 2rem;
 }
+
+/* Fixed navigation bar */
+.navbar.fixed-top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+body {
+  padding-top: 56px;
+}
