@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Full Recipe section -->
+<section class="py-5 border-bottom" id="full-recipe">
+    <div class="container px-5 my-5">
+        <div class="row gx-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="fw-bolder">{{ recipe.name }}</h2>
+                <p>Cuisine: {{ recipe.cuisine }}</p>
+                <h4>Ingredients:</h4>
+                <p>{{ recipe.ingredients }}</p>
+                <h4>Instructions:</h4>
+                <p>{{ recipe.instructions }}</p>
+                <h4>Tools:</h4>
+                <p>{{ recipe.tools }}</p>
+                <a href="{{ url_for('index') }}" class="btn btn-primary">Back to Recipes</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
