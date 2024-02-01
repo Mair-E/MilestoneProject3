@@ -74,6 +74,21 @@ def edit_recipe(recipe_id):
 
     return render_template('edit_recipe.html', recipe=recipe)
 
+# Delete_recipe route
+@app.route('/delete_recipe/<int:recipe_id>', methods=['GET', 'POST'])
+def delete_recipe(recipe_id):
+    recipe = Recipe.query.get(recipe_id)
+
+    if recipe is None:
+        return "Recipe not found", 404
+
+    if request.method == 'POST':
+        db.session.delete(recipe)
+        db.session.commit()
+        return redirect(url_for('index'))
+
+    return render_template('delete_recipe.html', recipe=recipe)
+
 # Contact route
 @app.route("/contact")
 def contact():
