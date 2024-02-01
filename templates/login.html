@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h2>Login</h2>
+<form method="post" action="{{ url_for('login') }}">
+    <label for="username">Username:</label>
+    <input type="text" name="username" required>
 
+    <label for="password">Password:</label>
+    <input type="password" name="password" required>
+
+    <button type="submit">Login</button>
+</form>
+<p>Need to make changes?<a href="{{ url_for('contact') }}">Contact Admin here</a></p>
 
 {% endblock %}
