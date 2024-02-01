@@ -1,9 +1,9 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import UserMixin, LoginManager, login_user, login_required, logout_user, current_user
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_migrate import Migrate
+#from flask_login import UserMixin, LoginManager, login_user, login_required, logout_user, current_user
+#from werkzeug.security import generate_password_hash, check_password_hash
+#from flask_migrate import Migrate
 
 if os.path.exists("env.py"):
     import env  # noqa
@@ -14,20 +14,20 @@ app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///recipes.db'  # SQLite databas
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+#migrate = Migrate(app, db)
 
-login_manager = LoginManager(app)
-login_manager.login_view = 'login'
+#login_manager = LoginManager(app)
+#login_manager.login_view = 'login'
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
+#@login_manager.user_loader
+#def load_user(user_id):
+#    return User.query.get(int(user_id))
 
 # User model
-class User(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(50), unique=True, nullable=False)
-    password = db.Column(db.String(100), nullable=False)
+#class User(db.Model, UserMixin):
+ #   id = db.Column(db.Integer, primary_key=True)
+#    username = db.Column(db.String(50), unique=True, nullable=False)
+#    password = db.Column(db.String(100), nullable=False)
 
 # Recipe model
 class Recipe(db.Model):
@@ -37,54 +37,54 @@ class Recipe(db.Model):
     instructions = db.Column(db.Text, nullable=False)
     tools = db.Column(db.String(255), nullable=False)
     cuisine = db.Column(db.String(255), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    user = db.relationship('User', backref='recipes')
+ #   user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+#    user = db.relationship('User', backref='recipes')
         
 # Create the database tables
-with app.app_context():
-    try:
-        db.create_all()
-    except Exception as e:
-        print(f"Error creating database tables: {e}")
+#with app.app_context():
+#    try:
+#        db.create_all()
+#    except Exception as e:
+#        print(f"Error creating database tables: {e}")
 
 # Register route
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+#@app.route('/register', methods=['GET', 'POST'])
+#def register():
+ #   if request.method == 'POST':
+#        username = request.form['username']
+#        password = request.form['password']
+#
+ #       hashed_password = generate_password_hash(password, method='sha256')
+#
+ #       new_user = User(username=username, password=hashed_password)
+ #       db.session.add(new_user)
+ #       db.session.commit()
 
-        hashed_password = generate_password_hash(password, method='sha256')
+#        return redirect(url_for('login'))
 
-        new_user = User(username=username, password=hashed_password)
-        db.session.add(new_user)
-        db.session.commit()
-
-        return redirect(url_for('login'))
-
-    return render_template('register.html')
+ #   return render_template('register.html')
 
 # Login route
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+#@app.route('/login', methods=['GET', 'POST'])
+#def login():
+ #   if request.method == 'POST':
+ #       username = request.form['username']
+ #       password = request.form['password']
 
-        user = User.query.filter_by(username=username).first()
+  #      user = User.query.filter_by(username=username).first()
 
-        if user and check_password_hash(user.password, password):
-            login_user(user)
-            return redirect(url_for('index'))
+ #       if user and check_password_hash(user.password, password):
+ #           login_user(user)
+ #           return redirect(url_for('index'))
 
-    return render_template('login.html')
+#    return render_template('login.html')
 
 # Logout route
-@app.route('/logout')
-@login_required
-def logout():
-    logout_user()
-    return redirect(url_for('index'))
+#@app.route('/logout')
+#@login_required
+#def logout():
+#    logout_user()
+#    return redirect(url_for('index'))
 
 # Index route
 @app.route("/")
