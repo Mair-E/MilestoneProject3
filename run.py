@@ -65,19 +65,19 @@ class Recipe(db.Model):
  #   return render_template('register.html')
 
 # Login route
-#@app.route('/login', methods=['GET', 'POST'])
-#def login():
- #   if request.method == 'POST':
- #       username = request.form['username']
- #       password = request.form['password']
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
 
-  #      user = User.query.filter_by(username=username).first()
+        user = User.query.filter_by(username=username).first()
 
- #       if user and check_password_hash(user.password, password):
- #           login_user(user)
- #           return redirect(url_for('index'))
+        if user and check_password_hash(user.password, password):
+            login_user(user)
+            return redirect(url_for('index'))
 
-#    return render_template('login.html')
+    return render_template('login.html')
 
 # Logout route
 #@app.route('/logout')
