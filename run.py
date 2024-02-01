@@ -48,21 +48,21 @@ class Recipe(db.Model):
 #        print(f"Error creating database tables: {e}")
 
 # Register route
-#@app.route('/register', methods=['GET', 'POST'])
-#def register():
- #   if request.method == 'POST':
-#        username = request.form['username']
-#        password = request.form['password']
-#
- #       hashed_password = generate_password_hash(password, method='sha256')
-#
- #       new_user = User(username=username, password=hashed_password)
- #       db.session.add(new_user)
- #       db.session.commit()
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
 
-#        return redirect(url_for('login'))
+        hashed_password = generate_password_hash(password, method='sha256')
 
- #   return render_template('register.html')
+        new_user = User(username=username, password=hashed_password)
+        db.session.add(new_user)
+        db.session.commit()
+
+        return redirect(url_for('login'))
+
+    return render_template('register.html')
 
 # Login route
 @app.route('/login', methods=['GET', 'POST'])
