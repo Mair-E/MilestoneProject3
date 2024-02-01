@@ -3,12 +3,10 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, LoginManager, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_migrate import Migrate
 
 if os.path.exists("env.py"):
     import env  # noqa
-
-login_manager = LoginManager(app)
-login_manager.login_view = 'login'
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
@@ -16,6 +14,10 @@ app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///recipes.db'  # SQLite databas
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+
+login_manager = LoginManager(app)
+login_manager.login_view = 'login'
 
 # User model
 class User(db.Model, UserMixin):
