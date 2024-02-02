@@ -12629,3 +12629,8 @@ fieldset:disabled .btn {
 body {
   padding-top: 56px;
 }
+
+/* Add space between social media icons */
+.icon-space {
+  margin-right: 10px;
+}
