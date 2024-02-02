@@ -2,19 +2,25 @@
 {% block content %}
 
 <!-- Full Recipe section -->
-<section class="py-5 border-bottom" id="full-recipe">
+<section class="py-5 bg-light">
     <div class="container px-5 my-5">
-        <div class="row gx-5">
-            <div class="col-lg-8 mx-auto">
-                <h2 class="fw-bolder">{{ recipe.name }}</h2>
-                <p>Cuisine: {{ recipe.cuisine }}</p>
-                <h4>Ingredients:</h4>
-                <p>{{ recipe.ingredients }}</p>
-                <h4>Instructions:</h4>
-                <p>{{ recipe.instructions }}</p>
-                <h4>Tools:</h4>
-                <p>{{ recipe.tools }}</p>
-                <a href="{{ url_for('index') }}" class="btn btn-primary">Back to Recipes</a>
+        <div class="text-center mb-5">
+            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-card-heading"></i>
+            </div>
+            <h2 class="fw-bolder">{{ recipe.name }}</h2>
+            <p>Cuisine: {{ recipe.cuisine }}</p>
+        </div>
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+                <h5>Ingredients:</h4>
+                    <p>{{ recipe.ingredients }}</p>
+                    <h5>Instructions:</h4>
+                        <p>{{ recipe.instructions }}</p>
+                        <h5>Tools:</h4>
+                            <p>{{ recipe.tools }}</p>
+                            <div class="d-grid mt-2">
+                                <a href="{{ url_for('index') }}" class="btn btn-primary">Back to Recipes</a>
+                            </div>
             </div>
         </div>
     </div>
