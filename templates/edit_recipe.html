@@ -4,9 +4,9 @@
 <section class="bg-light py-5">
     <div class="container px-5 my-5">
         <div class="text-center mb-5">
-        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-pen"></i>
-        </div>
-        <h2 class="fw-bolder">Edit Recipe</h2>
+            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-pen"></i>
+            </div>
+            <h2 class="fw-bolder">Edit Recipe</h2>
         </div>
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-6">
@@ -38,6 +38,11 @@
                     </div>
                     <div class="d-grid">
                         <button type="submit" class="btn btn-lg btn-primary">Save Changes</button>
+                    </div>
+                    <div class="d-grid mt-2">
+                        <a class="btn btn-danger " href="{{ url_for('delete_recipe', recipe_id=recipe.id) }}">
+                            Delete
+                        </a>
                     </div>
                 </form>
             </div>
