@@ -1,33 +1,35 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-#from flask_login import UserMixin, LoginManager, login_user, login_required, logout_user, current_user
-#from werkzeug.security import generate_password_hash, check_password_hash
-#from flask_migrate import Migrate
+# from flask_login import UserMixin, LoginManager, login_user, login_required, logout_user, current_user
+# from werkzeug.security import generate_password_hash, check_password_hash
+# from flask_migrate import Migrate
 
 if os.path.exists("env.py"):
     import env  # noqa
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
-app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///recipes.db'  # SQLite database file
+# SQLite database file
+app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///recipes.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-#migrate = Migrate(app, db)
+# migrate = Migrate(app, db)
 
-#login_manager = LoginManager(app)
-#login_manager.login_view = 'login'
+# login_manager = LoginManager(app)
+# login_manager.login_view = 'login'
 
-#@login_manager.user_loader
-#def load_user(user_id):
+# @login_manager.user_loader
+# def load_user(user_id):
 #    return User.query.get(int(user_id))
 
 # User model
-#class User(db.Model, UserMixin):
- #   id = db.Column(db.Integer, primary_key=True)
+# class User(db.Model, UserMixin):
+#    id = db.Column(db.Integer, primary_key=True)
 #    username = db.Column(db.String(50), unique=True, nullable=False)
 #    password = db.Column(db.String(100), nullable=False)
+
 
 # Recipe model
 class Recipe(db.Model):
@@ -37,15 +39,16 @@ class Recipe(db.Model):
     instructions = db.Column(db.Text, nullable=False)
     tools = db.Column(db.String(255), nullable=False)
     cuisine = db.Column(db.String(255), nullable=False)
- #   user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+#    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 #    user = db.relationship('User', backref='recipes')
-        
+
 # Create the database tables
-#with app.app_context():
+# with app.app_context():
 #    try:
 #        db.create_all()
 #    except Exception as e:
 #        print(f"Error creating database tables: {e}")
+
 
 # Register route
 @app.route('/register', methods=['GET', 'POST'])
@@ -64,6 +67,7 @@ def register():
 
     return render_template('register.html')
 
+
 # Login route
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -79,18 +83,21 @@ def login():
 
     return render_template('login.html')
 
+
 # Logout route
-#@app.route('/logout')
-#@login_required
-#def logout():
+# @app.route('/logout')
+# @login_required
+# def logout():
 #    logout_user()
 #    return redirect(url_for('index'))
+
 
 # Index route
 @app.route("/")
 def index():
     recipes = Recipe.query.all()
     return render_template("index.html", recipes=recipes)
+
 
 # Addrecipe route
 @app.route('/addrecipe', methods=['GET', 'POST'])
@@ -112,6 +119,7 @@ def addrecipe():
 
     return render_template('addrecipe.html')
 
+
 # Edit_recipe route
 @app.route('/edit_recipe/<int:recipe_id>', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):
@@ -131,6 +139,7 @@ def edit_recipe(recipe_id):
 
     return render_template('edit_recipe.html', recipe=recipe)
 
+
 # Delete_recipe route
 @app.route('/delete_recipe/<int:recipe_id>', methods=['GET', 'POST'])
 def delete_recipe(recipe_id):
@@ -146,6 +155,7 @@ def delete_recipe(recipe_id):
 
     return render_template('delete_recipe.html', recipe=recipe)
 
+
 # View full recipe route
 @app.route('/full_recipe/<int:recipe_id>')
 def full_recipe(recipe_id):
@@ -156,13 +166,15 @@ def full_recipe(recipe_id):
 
     return render_template('full_recipe.html', recipe=recipe)
 
+
 # Contact route
 @app.route("/contact")
 def contact():
-    return render_template("contact.html") 
+    return render_template("contact.html")
+
 
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),
         port=int(os.environ.get("PORT", "5000")),
-        debug=True) #Update to False before submitting
+        debug=True)  # Update to False before submitting
