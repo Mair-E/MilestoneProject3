@@ -1,9 +1,9 @@
 # CookBook
 
-Cookbook is an online web application that allows users to easily share and access new cooking recipes. 
-The site ha a simple and easily navigated interface, allowing the user to quickly fulfil their customer needs.
+Cookbook is an online web application that allows users to easily access new cooking recipes. It also has an admin feature to register and login to enable the admin user to add, edit and delete recipes. 
+The site has a simple and easily navigated interface, allowing the user to quickly fulfil their customer needs.
 
-[View Live Site Here](XX)
+[View Live Site Here](https://cook-book-2d3eb6c90320.herokuapp.com/)
 
 ## Table of Contents (Update layout to click to expand)
 -   [UX](#ux)
@@ -48,22 +48,21 @@ The site ha a simple and easily navigated interface, allowing the user to quickl
     
     ### Goals
     The target audience for CookBook are:
-    - People interested in cooking from home and trying new recipes.
-    - People woth well loved recipes who want to share and recommend them to others.
+    - People interested in cooking from home and trying new recipes which are regularly updated.
 
     User goals are:
     - Easily work out the purpose of the website.
-    - Easily navigate the website.
-    - Search for new recipes.
-    - Add their own recipe.
-    - Contact the website owner.
+    - Easily navigate the website..
+    - Owner of the site to become an admin user.
+    - Admin user to add/edit and delete recipes..  
+    - Contact the website admin.
 
     CookBook fills these needs by:
-    - 
-    - 
-    - 
-    - 
-    - Providing a contact form as well as links to social media of the owner, myself.
+    - Each page has a header with the title and cookbook image so it is asy to understand the focus of the website.
+    - There is a fixed navigation bar at the top of each page to direct the user as well as buttons in the body of the page to go back and forth.
+    - There is a hidden register page for the owner to register as an admin user and then they can navigate to the login page froom the nav bar.
+    - When admin is logged in they have access to the Add recipe page aswell as edit button which enables them to edit and delete a recipe.
+    - Providing a contact form as well as links to social media of the admin user, myself.
 
     ### User stories
 
@@ -84,7 +83,7 @@ The site ha a simple and easily navigated interface, allowing the user to quickl
 
     Updated wireframes if layout changes
     ### Data Design
-    this project usesa  relational database, meaning each collection is directly related to one another. 
+    This project uses relational database, meaning each collection is directly related to one another. 
     ### Visual Design
     #### Fonts
     Example
@@ -93,9 +92,10 @@ The site ha a simple and easily navigated interface, allowing the user to quickl
 
     #### Icons
     Image
-    - Icons are taken from the [Fontawesome](https://fontawesome.com/) Icon library and are utilised as classes in the `<i>` tag.
+    - Icons are taken from the [getbootstrap](https://icons.getbootstrap.com/i) Icon library and are utilised as classes in the `<i>` tag.
     - As they are utilised as classes, they can easily be styled using other classes or IDs in the same tag. I often used Bootstrap classes to style them uniformly.
-    - I have used the linked in icon in the footer for my social account.
+    - I have used the instagram, facebook, twitter and linked in icons in the footer. These direct you to the main home pages but ideally the owner would have profiles on each one.
+    - Each page has a simple icon above its title to give a pictorial idea of what the page's use is.
 
     #### Colours
     Colour scheme image
@@ -106,17 +106,29 @@ The site ha a simple and easily navigated interface, allowing the user to quickl
     ### Current Features
     #### Page Features Matrix
     Home Page
-    Add Recipe
-    All Recipes
+
+    Add recipe page
+
+    Edit recipe page
+
+    Delete recipe page
+
+    Full recipe page
+
+    Register page
+
+    Login page
+
     Contact Page
+
     404 page
 
     #### User Feature Permissions
 
     ### Future Features
     To improve my CookBook page further I could:
-    - 
-    - 
+    - Add customised images to the index page for recipes.
+    - Add a search function using the recipe cuisine type.
     ----
 
     ## Languages and Technologies
@@ -128,6 +140,7 @@ The site ha a simple and easily navigated interface, allowing the user to quickl
         * Styling.
     - [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
         * Running functions for interactive components, etc.
+    -[Python]
 
     ### Frameworks
     Bootstrap
@@ -145,8 +158,7 @@ The site ha a simple and easily navigated interface, allowing the user to quickl
     ### Other Tools
     - [Balsamiq](https://balsamiq.com/)
         * To create wireframes.
-    - [Favicon Generator](https://www.favicon-generator.org/)
-        * Favicons
+   
     ----
 
     ## Testing
@@ -174,7 +186,7 @@ The site ha a simple and easily navigated interface, allowing the user to quickl
 
         Automated Testing is use for high volume, repeatable testing to test performance.
 
-    I have chosen to primarily use xxx testing for my web page.
+    I have chosen to primarily use manual testing for my web page.
 
     ### Methods
     Validation
@@ -198,7 +210,7 @@ The site ha a simple and easily navigated interface, allowing the user to quickl
     |User Story|Screenshot|
     |---|---|
 
-    Lighthoue Testing
+    Lighthouse Testing
     |![Mobile Lighthouse Testing](#)|
     |![Desktop Lighthouse Testing](#)|
 
@@ -250,11 +262,11 @@ The site ha a simple and easily navigated interface, allowing the user to quickl
     ### Support Credit
     - Tutor support to assist...
     - [Slack](https://slack.com/intl/en-gb/) to searching for ideas for inspiration.
-
+    - [Google](https://www.google.com/) trouble shouting when stuck.
     - [Flask-SQLAlchemy](https://pypi.org/project/Flask-SQLAlchemy/)with assistance adding 
 
     All images were taken from the sites below:
-    - 
+    - [istockphoto](https://www.istockphoto.com/photos/feast) for index.html image of feats used above all recipes.
     - [Favicon](https://favicon.io/) for the Favicon for the website.
 
     ### Contact
