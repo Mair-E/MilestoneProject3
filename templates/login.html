@@ -2,7 +2,7 @@
 {% block content %}
 
 <section class="bg-light py-5">
-    <div class="container px-5 my-5 px-5">
+    <div class="container px-5 my-5">
         <div class="row gx-5 justify-content-center">
             <div class="text-center mb-5">
                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-key"></i>
@@ -12,7 +12,6 @@
                     <div class="col-lg-6">
                         <form method="post" action="{{ url_for('login') }}">
                             <!-- Username input -->
-                            <!-- Username input -->
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="name" type="text" name="username"
                                     placeholder="Enter your username..." data-sb-validations="required" />
@@ -20,7 +19,6 @@
                                 <div class="invalid-feedback" data-sb-feedback="username:required">A username is
                                     required.</div>
                             </div>
-
 
                             <!-- Password input -->
                             <div class="form-floating mb-3">
@@ -31,7 +29,6 @@
                                     required.</div>
                             </div>
 
-
                             <!-- Submit button -->
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-primary btn-lg">Login</button>
@@ -40,7 +37,7 @@
 
                         <hr class="mb-3">
 
-                        <p class="text-center mb-0"><a href="{{ url_for('contact') }}"> Contact Admin here</a></p>
+                        <p class="mb-0"><a href="{{ url_for('contact') }}"> Contact Admin here</a></p>
                     </div>
                 </div>
             </div>
