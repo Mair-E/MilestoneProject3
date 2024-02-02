@@ -2,8 +2,7 @@ import os
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 # from flask_login import UserMixin, LoginManager, login_user, login_required, logout_user, current_user
-# from werkzeug.security import generate_password_hash, check_password_hash
-# from flask_migrate import Migrate
+from werkzeug.security import generate_password_hash, check_password_hash
 
 if os.path.exists("env.py"):
     import env  # noqa
@@ -15,7 +14,6 @@ app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///recipes.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-# migrate = Migrate(app, db)
 
 # login_manager = LoginManager(app)
 # login_manager.login_view = 'login'
@@ -23,6 +21,7 @@ db = SQLAlchemy(app)
 # @login_manager.user_loader
 # def load_user(user_id):
 #    return User.query.get(int(user_id))
+
 
 # User model
 # class User(db.Model, UserMixin):
@@ -39,17 +38,16 @@ class Recipe(db.Model):
     instructions = db.Column(db.Text, nullable=False)
     tools = db.Column(db.String(255), nullable=False)
     cuisine = db.Column(db.String(255), nullable=False)
-    image_url = db.Column(db.String(255))
-    
-#    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+#    user_id = db.Column(db.Integer, db.ForeignKey('user.id', name='fk_recipe_user_id'), nullable=False)
 #    user = db.relationship('User', backref='recipes')
 
 # Create the database tables
-# with app.app_context():
-#    try:
-#        db.create_all()
-#    except Exception as e:
-#        print(f"Error creating database tables: {e}")
+with app.app_context():
+    try:
+        db.create_all()
+    except Exception as e:
+        print(f"Error creating database tables: {e}")
 
 
 # Register route
@@ -86,14 +84,6 @@ def login():
     return render_template('login.html')
 
 
-# Logout route
-# @app.route('/logout')
-# @login_required
-# def logout():
-#    logout_user()
-#    return redirect(url_for('index'))
-
-
 # Index route
 @app.route("/")
 def index():
@@ -110,7 +100,7 @@ def addrecipe():
             ingredients=request.form['ingredients'],
             instructions=request.form['instructions'],
             tools=request.form['tools'],
-            cuisine=request.form['cuisine']
+            cuisine=request.form['cuisine'],
         )
 
         # Save the new recipe to the database
