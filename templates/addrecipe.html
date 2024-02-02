@@ -4,7 +4,7 @@
 
 <section class="py-5">
     <div class="container px-5 my-5">
-        <h2 class="display-5 fw-bolder">Share Your Favourite Recipe</h2>
+        <h2 class="mb-4 fw-bolder text-center">Share Your Favourite Recipe</h2>
         <form method="POST" action="{{ url_for('addrecipe') }}">
             <div class="mb-3">
                 <label for="name" class="form-label">Recipe Name</label>
@@ -26,7 +26,7 @@
                 <label for="cuisine" class="form-label">Cuisine:</label>
                 <input type="text" class="form-control" id="cuisine" name="cuisine" required>
             </div>
-            <button type="submit" class="btn btn-primary">Save Recipe</button>
+            <button type="submit" class="btn btn-lg btn-primary">Save Recipe</button>
         </form>
     </div>
 </section>

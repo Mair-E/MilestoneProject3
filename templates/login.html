@@ -1,17 +1,46 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Login</h2>
-<form method="post" action="{{ url_for('login') }}">
-    <label for="username">Username:</label>
-    <input type="text" name="username" required>
+<section class="bg-light py-5">
+    <div class="container px-5 my-5 px-5">
+        <div class="row gx-5 justify-content-center">
+            <div>
+                <h2 class="fw-bolder text-center mb-4">Login</h2>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <form method="post" action="{{ url_for('login') }}" class="needs-validation" novalidate>
+                            <!-- Username input -->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="name" type="text" placeholder="Enter your username..."
+                                    data-sb-validations="required" />
+                                <label for="username">Username:</label>
+                                <div class="invalid-feedback" data-sb-feedback="username:required">A username is
+                                    required.</div>
+                            </div>
 
-    <label for="password">Password:</label>
-    <input type="password" name="password" required>
+                            <!-- Password input -->
+                            <div class="form-floating mb-3">
+                                <input type="password" name="password" class="form-control" id="password"
+                                    placeholder="Enter your password..." data-sb-validations="required">
+                                <label for="password">Password:</label>
+                                <div class="invalid-feedback" data-sb-feedback="password:required">A password is
+                                    required.</div>
+                            </div>
 
-    <button type="submit">Login</button>
-</form>
-<hr>
-<p><a href="{{ url_for('contact') }}"> Contact Admin here</a></p>
+                            <!-- Submit button -->
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                            </div>
+                        </form>
+
+                        <hr class="mb-3">
+
+                        <p class="text-center mb-0"><a href="{{ url_for('contact') }}"> Contact Admin here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}
