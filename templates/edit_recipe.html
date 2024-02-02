@@ -1,35 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class="py-5">
+<section class="bg-light py-5">
     <div class="container px-5 my-5">
-        <h2 class="display-5 fw-bolder text-center">Edit Recipe</h2>
-        <form method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe.id) }}">
-            <div class="mb-3">
-                <label for="name" class="form-label">Recipe Name</label>
-                <input type="text" class="form-control" id="name" name="name" value="{{ recipe.name }}" required>
+        <h2 class="fw-bolder text-center mb-4">Edit Recipe</h2>
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+                <form method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe.id) }}">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Recipe Name</label>
+                        <input type="text" class="form-control" id="name" name="name" value="{{ recipe.name }}"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ingredients" class="form-label">Ingredients</label>
+                        <textarea class="form-control" id="ingredients" name="ingredients" rows="4"
+                            required>{{ recipe.ingredients }}</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="instructions" class="form-label">Instructions</label>
+                        <textarea class="form-control" id="instructions" name="instructions" rows="4"
+                            required>{{ recipe.instructions }}</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tools" class="form-label">Tools</label>
+                        <input type="text" class="form-control" id="tools" name="tools" value="{{ recipe.tools }}"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cuisine" class="form-label">Cuisine</label>
+                        <input type="text" class="form-control" id="cuisine" name="cuisine" value="{{ recipe.cuisine }}"
+                            required>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-lg btn-primary">Save Changes</button>
+                    </div>
+                </form>
             </div>
-            <div class="mb-3">
-                <label for="ingredients" class="form-label">Ingredients</label>
-                <textarea class="form-control" id="ingredients" name="ingredients" rows="4"
-                    required>{{ recipe.ingredients }}</textarea>
-            </div>
-            <div class="mb-3">
-                <label for="instructions" class="form-label">Instructions</label>
-                <textarea class="form-control" id="instructions" name="instructions" rows="4"
-                    required>{{ recipe.instructions }}</textarea>
-            </div>
-            <div class="mb-3">
-                <label for="tools" class="form-label">Tools</label>
-                <input type="text" class="form-control" id="tools" name="tools" value="{{ recipe.tools }}" required>
-            </div>
-            <div class="mb-3">
-                <label for="cuisine" class="form-label">Cuisine</label>
-                <input type="text" class="form-control" id="cuisine" name="cuisine" value="{{ recipe.cuisine }}"
-                    required>
-            </div>
-            <button type="submit" class="btn btn-lg btn-primary">Save Changes</button>
-        </form>
+        </div>
     </div>
 </section>
 
