@@ -6,5 +6,5 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-secret-key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///recipes.db'
 db = SQLAlchemy(app)
-login_manager = LoginManager(app)
-login_manager.login_view = 'auth.login'
+#login_manager = LoginManager(app)
+#login_manager.login_view = 'auth.login'
