@@ -39,6 +39,8 @@ class Recipe(db.Model):
     instructions = db.Column(db.Text, nullable=False)
     tools = db.Column(db.String(255), nullable=False)
     cuisine = db.Column(db.String(255), nullable=False)
+    image_url = db.Column(db.String(255))
+    
 #    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 #    user = db.relationship('User', backref='recipes')
 

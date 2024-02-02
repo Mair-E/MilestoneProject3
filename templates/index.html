@@ -9,8 +9,8 @@
             {% for recipe in recipes %}
             <div class="col-lg-4 col-md-6 mb-5 mb-lg-0 text-center">
                 <div class="feature mb-3">
-                    <img src="https://www.simplyrecipes.com/thmb/tR-5eHAZ3lgNR6Yvu3yxdHMNpk8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Easy-Banana-Bread-LEAD-2-2-63dd39af009945d58f5bf4c2ae8d6070.jpg"
-                        alt="Recipe image" class="img-fluid rounded-3" style="max-width: 200%; height: auto;"></i>
+                    <img src="{{ recipe.image_url }}" alt="{{ recipe.name }} class=" img-fluid rounded-3"
+                        style="max-width: 200%; height: auto;"></i>
                 </div>
                 <h2 class="h4 fw-bolder">{{ recipe.name }}</h2>
                 <p>{{ recipe.cuisine }}</p>

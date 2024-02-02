@@ -20,6 +20,11 @@
                         <div class="invalid-feedback" data-sb-feedback="name:required">A recipe name is required.</div>
                     </div>
                     <div class="mb-3 form-floating">
+                        <input type="text" class="form-control" id="image_url" name="image_url"
+                            placeholder="Enter your recipe image URL...">
+                        <label for="image_url" class="form-label">Image URL:</label>
+                    </div>
+                    <div class="mb-3 form-floating">
                         <textarea class="form-control" id="ingredients" name="ingredients"
                             placeholder="Enter your recipe ingredients..." data-sb-validations="required"></textarea>
                         <label for="ingredients" class="form-label">Ingredients:</label>
@@ -55,7 +60,6 @@
         </div>
     </div>
 </section>
-
 
 
 {% endblock %}
