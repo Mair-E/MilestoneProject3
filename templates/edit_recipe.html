@@ -3,7 +3,11 @@
 
 <section class="bg-light py-5">
     <div class="container px-5 my-5">
-        <h2 class="fw-bolder text-center mb-4">Edit Recipe</h2>
+        <div class="text-center mb-5">
+        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-pen"></i>
+        </div>
+        <h2 class="fw-bolder">Edit Recipe</h2>
+        </div>
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-6">
                 <form method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe.id) }}">
