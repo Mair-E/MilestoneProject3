@@ -43,16 +43,16 @@
         </div>
     </nav>
     <!-- Header-->
-    <header class="bg-dark py-5"> <!-- Change background -->
+    <header class="bg-dark py-5"
+        style="background-image: url('{{ url_for('static', filename='images/cookbook.jpg') }}'); background-position: center center; background-repeat: no-repeat ">
         <div class="container px-5">
             <div class="row gx-5 justify-content-center">
                 <div class="col-lg-6">
                     <div class="text-center my-5">
-                        <h1 class="display-5 fw-bolder text-white mb-2">My CookBook</h1>
-                        <p class="lead text-white-50 mb-4">Find and share new and loved recipes.</p>
-                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                            <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{{ url_for('addrecipe') }}">Share a
-                                Recipe</a>
+                        <div class="title-background "
+                            style="background-color: rgba(0, 0, 0, 0.5); border-radius: 10px; padding: 10px;">
+                            <h1 class="display-4 fw-bolder text-white mb-3">My CookBook</h1>
+                            <p class="lead fw-bold text-white-10 mb-4">Your new favourite recipe site.</p>
                         </div>
                     </div>
                 </div>
