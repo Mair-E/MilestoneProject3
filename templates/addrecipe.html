@@ -2,35 +2,60 @@
 
 {% block content %}
 
-<section class="py-5">
+<section class="bg-light py-5">
     <div class="container px-5 my-5">
-        <h2 class="mb-4 fw-bolder text-center">Share Your Favourite Recipe</h2>
-        <form method="POST" action="{{ url_for('addrecipe') }}">
-            <div class="mb-3">
-                <label for="name" class="form-label">Recipe Name</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+        <div class="text-center mb-5">
+            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-book"></i>
             </div>
-            <div class="mb-3">
-                <label for="ingredients" class="form-label">Ingredients:</label>
-                <textarea class="form-control" id="ingredients" name="ingredients" rows="4" required></textarea>
+            <h2 class="fw-bolder">Add Recipe</h2>
+            <p class="lead mb-0">Add your recipes information here to upload onto the home page.</p>
+        </div>
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+                <form method="POST" action="{{ url_for('addrecipe') }}">
+                    <div class="mb-3 form-floating">
+                        <input type="text" class="form-control" id="name" name="name"
+                            placeholder="Enter your recipe name..." data-sb-validations="required">
+                        <label for="name">Recipe Name</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">A recipe name is required.</div>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <textarea class="form-control" id="ingredients" name="ingredients"
+                            placeholder="Enter your recipe ingredients..." data-sb-validations="required"></textarea>
+                        <label for="ingredients" class="form-label">Ingredients:</label>
+                        <div class="invalid-feedback" data-sb-feedback="ingredientsrequired">A list of ingredients is
+                            required.</div>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <textarea class="form-control" id="instructions" name="instructions"
+                            placeholder="Enter your recipe instructions..." data-sb-validations="required"></textarea>
+                        <label for="instructions" class="form-label">Instructions:</label>
+                        <div class="invalid-feedback" data-sb-feedback="instructions:required">A list of instructions is
+                            required.</div>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input type="text" class="form-control" id="tools" name="tools"
+                            placeholder="Enter your tools needed..." data-sb-validations="required">
+                        <label for="tools" class="form-label">Tools:</label>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input type="text" class="form-control" id="cuisine" name="cuisine"
+                            placeholder="Enter your cuisine type..." data-sb-validations="required">
+                        <label for="cuisine" class="form-label">Cuisine:</label>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-lg btn-primary">Save Recipe</button>
+                    </div>
+                </form>
+                <hr>
+                <div class="text-center">
+                    <a href="{{ url_for('index') }}">Back to Recipe List</a>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="instructions" class="form-label">Instructions:</label>
-                <textarea class="form-control" id="instructions" name="instructions" rows="8" required></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="tools" class="form-label">Tools:</label>
-                <input type="text" class="form-control" id="tools" name="tools" required>
-            </div>
-            <div class="mb-3">
-                <label for="cuisine" class="form-label">Cuisine:</label>
-                <input type="text" class="form-control" id="cuisine" name="cuisine" required>
-            </div>
-            <button type="submit" class="btn btn-lg btn-primary">Save Recipe</button>
-        </form>
+        </div>
     </div>
 </section>
 
-<a href="{{ url_for('index') }}">Back to Recipe List</a>
+
 
 {% endblock %}
