@@ -3,9 +3,6 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
-# from models.user import User
-# from models import db
-# from app import app
 
 if os.path.exists("env.py"):
     import env  # noqa
@@ -31,9 +28,6 @@ class Recipe(db.Model):
     tools = db.Column(db.String(255), nullable=False)
     cuisine = db.Column(db.String(255), nullable=False)
 
-#    user_id = db.Column(db.Integer, db.ForeignKey('user.id', name='fk_recipe_user_id'), nullable=False)
-#    user = db.relationship('User', backref='recipes')
-
 # Create the database tables
 with app.app_context():
     try:
@@ -47,61 +41,6 @@ with app.app_context():
 def index():
     recipes = Recipe.query.all()
     return render_template("index.html", recipes=recipes)
-
-    
-# Register route
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        new_user = User(username=username, password=password)
-        db.session.add(new_user)
-        db.session.commit()
-        flash('Your account has been created!', 'success')
-
-        return redirect(url_for('login'))
-
-    return render_template('register.html')
-
-
-# Login route
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-
-        user = User.query.filter_by(username=username).first()
-
-        if user and user.password == password:
-            login_user(user)
-            flash('Login successful!', 'success')
-            return redirect(url_for('dashboard'))
-
-        else:
-            flash('Login failed. Check your username and password.', 'danger')
-
-    return render_template('login.html')
-
-
-# Dashboard route
-@app.route('/dashboard')
-@login_required
-def dashboard():
-    return render_template('dashboard.html', user=current_user)
-
-
-# Logout route
-@app.route('/logout')
-@login_required
-def logout():
-    logout_user()
-    flash('You have been logged out.', 'info')
-    return redirect(url_for('index'))
-
-
-
 
 
 # Addrecipe route
