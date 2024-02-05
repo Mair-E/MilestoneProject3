@@ -114,11 +114,7 @@ The site has a simple and easily navigated interface, allowing the user to quick
     * Users can delete their added recipe.
 
     ### Visual Design
-    #### Fonts
-    Example
-    - The primary font...
-    - The secondary font...
-
+  
     #### Icons
     Image
     - Icons are taken from the [getbootstrap](https://icons.getbootstrap.com/i) anf [favicon](https://favicon.io/) Icon library and are utilised as classes in the `<i>` tag.
@@ -243,32 +239,34 @@ The site has a simple and easily navigated interface, allowing the user to quick
     Here is a table of the manual testing done on the site to determine if all features work as described and designed:
 
     |Feature Tested|Required Action|Expected Outcome|Result|
-    |---|---|---|---|
+    |Nav bar links|Click each navigation link|Each navigation link takes youto the correct page|PASS|
+    |Add recipe button|Enter info required and click add|Recipe to appear on home page|PASS|
+    |Edit recipe button|Update test to edit|Updated recipe on home page|PASS|
+    |Delete recipe button|click deleteRecipe to no longer be on home page|PASS|
+    |Social media links in footer|Click each social media icon link|Each link takes youto the correct page|PASS|
 
-    Mobile Testing
-    Desktop Testing
+    All fetaures have been checked on deskop and mible. 
 
     User Stories Testing
+     1. User -
+    - I want to get to understand the main purpose of the site - Site is clear and explanitory.
+    - I want to build my own recipe colelction to make a cookbook. Recipes are easily added through add page.
+    - I want to be able to contact the owner with any suggetsions to update the site. Contact us form allows user to send a message to site owner.
 
-    |User Story|Screenshot|
-    |---|---|
+    2. Website owner
+    - Provide a welcoming, interactive. - Webiste is warm and friendly and easy to use.
 
-    Lighthouse Testing
-    |![Mobile Lighthouse Testing](#)|
-    |![Desktop Lighthouse Testing](#)|
 
     ### Bugs
-    1.The collapsed nav bar is not expanding on smaller screens.
-    2.
-    3.
+    1. Data base was not updating
+   
 
     #### Fixed Bugs
-    1. T
-    2.
-    3.
+    1. Structure of py files were corrected.
+   
 
     #### Unfixed Bugs
-    1.
+    1. Non that i am aware of
 
     ----
 
