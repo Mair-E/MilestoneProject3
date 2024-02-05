@@ -1,5 +1,6 @@
 from cookbook import db
 
+
 # Recipe model
 class Recipe(db.Model):
     id = db.Column(db.Integer, primary_key=True)

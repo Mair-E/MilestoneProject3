@@ -2,9 +2,6 @@ from flask import render_template, request, redirect, url_for
 from cookbook import app, db
 from cookbook.models import Recipe
 
-# from flask_sqlalchemy import SQLAlchemy
-
-# db = SQLAlchemy()
 
 # Index route
 @app.route("/")

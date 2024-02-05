@@ -1,23 +1,17 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
-#from werkzeug.security import generate_password_hash, check_password_hash
 from cookbook import app, db
-# from flask_login import login_user, login_required, logout_user, current_user
 
 if os.path.exists("env.py"):
     import env  # noqa
 
-# app = Flask(__name__)
 
 # Database confuguration
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 # SQLite database file
 app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///cookbook.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-# Initialize Flask extensions
-#db = SQLAlchemy(app)
 
 
 # Create the database tables
